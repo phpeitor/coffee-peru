@@ -228,116 +228,80 @@
 				</form>
      
             </div>
-            <!-- Slider Texts End -->
-        
         </div>
-        <!-- container end -->
-
-    
-
     </div>
-    <!-- Slider End -->
-
-
-
 </div>
-<!-- Page End -->
 
-
-
-<!-- JQuery -->
 <script src="js/jquery-1.12.4.min.js"></script> 
-<!-- Library JS -->
-<script src="js/lecker_library.js"></script> 
-
+<script src="js/lecker_library.js"></script>
 <!-- Theme JS -->
 <script src="js/lecker_script.js"></script>
 <script type="text/javascript">
 
 $(function() {
-$(".close").click(function (e) {
-	e.preventDefault();
-	$(this).parent().fadeOut("fast");
-});
+    $(".close").click(function (e) {
+        e.preventDefault();
+        $(this).parent().fadeOut("fast");
+    });
 
+    $("#btn_limpiar").click(function(e) {	
+            $("#user").val("");
+            $("#pass").val("");
+            $("#valido").hide();
+    });
 
-$("#btn_limpiar").click(function(e) {	
-		$("#user").val("");
-		$("#pass").val("");
-		$("#valido").hide();
-});
+    $("#btn_enviar").click(function(e) {				
+            var usuario = $("#user").val();
+            var password = $("#pass").val();
+            var isValidado = true;
 
-$("#btn_enviar").click(function(e) {				
-	
-		var usuario = $("#user").val();
-		var password = $("#pass").val();
-		
-		console.log(usuario);
-		console.log(password);
-		
-				
-		/***validamos null***/
-		var isValidado = true;
+            $("#frm_admin").find("input[required=required]").each(function (i,e) {
+                var tipo_control = ($(this)[0].tagName).toUpperCase();
+                if (tipo_control == "INPUT") {
+                    if ($.trim($(this).val()).length==0) {
+                        $(this).addClass("error");
+                        if (isValidado)
+                        $(this).focus(); 
+                        isValidado = false;
+                    } else
+                        $(this).removeClass("error");
+                }
+            });
+            
+            $("#frm_admin").find("input[required=required]").keyup(function (e) {
+                if ($.trim($(this).val()).length==0) {
+                    $(this).addClass("error")
+                }
+                else{
+                    $(this).removeClass("error");
+                }
+            });
+            
+            if (!isValidado)
+                return;
 
-		$("#frm_admin").find("input[required=required]").each(function (i,e) {
-			//console.log(document.getElementById($(this).attr("id")));
-			//console.log($(this)[0].tagName);
-			var tipo_control = ($(this)[0].tagName).toUpperCase();
-			if (tipo_control == "INPUT") {
-				if ($.trim($(this).val()).length==0) {
-					$(this).addClass("error");
-					if (isValidado)
-					$(this).focus(); 
-					isValidado = false;
-				} else
-					$(this).removeClass("error");
-			}
-		});
-		
-		
-		$("#frm_admin").find("input[required=required]").keyup(function (e) {
-			//console.log('keyup');
-			
-			if ($.trim($(this).val()).length==0) {
-			$(this).addClass("error")
-			}
-			else
-			$(this).removeClass("error");
-		});
-		
-		
-		if (!isValidado)
-			return;
-		
-		
-		acceso(usuario,password);
-	});
+            acceso(usuario,password);
+    });
 
-	function acceso(usuario,password) {
-		$.ajax({
-			data: {usuario:usuario,password:password},
-			dataType: 'json',
-			url: 'ajax_acceso_user.php',
-			success:  function (response) {
-				console.log(response);
-				if (response.codigo=="1"){
-					$("#valido").addClass("alert alert-success").removeClass("alert-danger").fadeIn('fast').find("span").text('Usuario y/o Password Válido');
-					setTimeout(function() {
-					window.location='system_javeca_order.php';
-				
-				}, 2000);
-				}else{
-					$("#valido").addClass("alert alert-danger").removeClass("alert-success").fadeIn('fast').find("span").text('Usuario y/o Password Incorrecto');
-				}
-			
-			}
-		});
-	} 
-});
-
-
-		
+    function acceso(usuario,password) {
+        $.ajax({
+            data: {usuario:usuario,password:password},
+            dataType: 'json',
+            url: 'ajax_acceso_user.php',
+            success:  function (response) {
+                console.log(response);
+                if (response.codigo=="1"){
+                    $("#valido").addClass("alert alert-success").removeClass("alert-danger").fadeIn('fast').find("span").text('Usuario y/o Password Válido');
+                    setTimeout(function() {
+                    window.location='system_order.php';
+                }, 2000);
+                }else{
+                    $("#valido").addClass("alert alert-danger").removeClass("alert-success").fadeIn('fast').find("span").text('Usuario y/o Password Incorrecto');
+                }
+            }
+        });
+    } 
+});	
 </script>
-
 </body>
 </html>

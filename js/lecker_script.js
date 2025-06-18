@@ -1,9 +1,8 @@
 ﻿(function($) {
-	"use strict"; // Start of use strict
-	
+  "use strict"; 
 
+  document.querySelector('.currentYear').textContent = new Date().getFullYear();
 
-  /*RSVP Form*/
   $(".lec_form").validate({
 	  submitHandler: function(form) {
 	  	var type = $(form).attr('id');
@@ -32,7 +31,7 @@
 
 		$.ajax({
 			method: "POST",
-			url: "http://formspree.io/rodalermakov@gmail.com",
+			url: "http://formspree.io/javiervelasco@gmail.com",
 			data: dataString,
 			dataType: "json",
 			success: function() {
@@ -562,7 +561,7 @@
 		 	});
 		}
 
-	 	/*Masonry*/
+	 	/*Masonry
 
 		var $grid = $('.grid').isotope({
 		  itemSelector: '.grid-item',
@@ -578,11 +577,9 @@
 		  $grid.isotope('layout');
 		});
 
-
-
 		$('.masonry').masonry({
 			itemSelector: '.masonry-item',
-		});
+		});*/
 
 		$('.filter-button-group').on( 'click', 'a', function() {
 		  var filterValue = $(this).attr('data-filter');
