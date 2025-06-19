@@ -1,9 +1,13 @@
 ﻿(function($) {
   "use strict"; 
 
-  document.querySelector('.currentYear').textContent = new Date().getFullYear();
+  	const currentYearElements = document.querySelectorAll('.currentYear');
 
-  $(".lec_form").validate({
+	currentYearElements.forEach(element => {
+		element.textContent = new Date().getFullYear();
+	});
+
+  	$(".lec_form").validate({
 	  submitHandler: function(form) {
 	  	var type = $(form).attr('id');
 	    send_form(type);
