@@ -1116,13 +1116,6 @@ label.error{
 	position: relative;
 }
 
-
-
-/*===============================================*/
-/* 04. Header                                    */
-/*===============================================*/
-
-/*Main Menu*/
 .lec_main_menu {
 	position: absolute;
 	right: 15px;
@@ -3543,7 +3536,7 @@ header {
 	  animation: neon 6s infinite linear;
     z-index: -1;
 }
-}
+
 .lec_page_neon .btn {
 	box-shadow:0 0 15px 4px #ed1cdc,0 0 120px 2px #790072,inset 0 0 15px 4px #ed1cdc,inset 0 0 100px 2px #790072;
 	border-radius: 8px;

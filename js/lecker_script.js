@@ -404,10 +404,6 @@
 		$(this).toggleClass('active');
 	});
 
-
-
-
-
 	/*Scroll Effect*/
 	$('.lec_go').on("click", function(e){
 		var anchor = $(this);
@@ -565,9 +561,9 @@
 		 	});
 		}
 
-	 	/*Masonry
+	 	/*Masonry*/
 
-		var $grid = $('.grid').isotope({
+		/*var $grid = $('.grid').isotope({
 		  itemSelector: '.grid-item',
 		  percentPosition: true,
 		  masonry: {

@@ -2,17 +2,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Javier Velasco Café</title>
-<link href="css/lecker_library.css" rel="stylesheet">
-<link href="fonts/themify-icons.css" rel="stylesheet">
-<link href="fonts/selima/stylesheet.css" rel="stylesheet">
-<link href="css/lecker_style.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lato" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javier Velasco Café</title>
+    <link href="css/lecker_library.css" rel="stylesheet">
+    <link href="fonts/themify-icons.css" rel="stylesheet">
+    <link href="fonts/selima/stylesheet.css" rel="stylesheet">
+    <link href="css/lecker_style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lato" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='75'>☕</text></svg>" />
 </head>
 <body class="lec_france">
-
 <div class="lec_page" id="lec_page">
     <a href="#lec_page" class="lec_top lec_go"><b class="ti ti-angle-up"></b></a>
     <header>    
@@ -20,10 +20,9 @@
             <a href="#" class="lec_logo">Javier Velasco <i><span>Café </span><span>Peruano</span></i></a>
 
             <div class="lec_main_menu">
-                
                 <div class="lec_main_menu_icon">
                     <i></i><i></i><i></i><i></i>
-                    <b class="lec_main_menu_icon_b">Atrás</b>
+                    <b class="lec_main_menu_icon_b"></b>
                 </div>
             </div>
 
@@ -34,32 +33,33 @@
             <div class="lec_main_menu_content_menu lec_wht_txt text-right">
                 <div class="container">
                     <ul>
-                        <li ><a href="index.php">Inicio</a> </li>
+                        <li ><a href="./">Inicio</a> </li>
                         <li class="lec_parent"><a href="#">Nosotros</a>
 							<ul>
-                                <li><a href="index.php#lec_content">Origen</a></li>
-                                <li><a href="index.php#lec_history">Historia</a></li>
-                                <li><a href="index.php#lec_cultura">Cultura</a></li>
-                                <li><a href="index.php#lec_norte">Mi Norte</a></li>
+                                <li><a href="./#lec_content">Origen</a></li>
+                                <li><a href="./#lec_history">Historia</a></li>
+                                <li><a href="./#lec_cultura">Cultura</a></li>
+                                <li><a href="./#lec_norte">Mi Norte</a></li>
                             </ul>
                         </li>
 						
 						<li class="lec_parent"><a href="#">Productos</a>
 							<ul>
-                                <li><a href="index.php#lec_especiales">Especiales</a></li>
-                                <li><a href="index.php#lec_top">TOP Day</a></li>
-                                <li><a href="index.php#lec_mascafe">Más Café</a></li>
-                                <li><a href="index.php#lec_explora">Explora</a></li>
+                                <li><a href="./#lec_especiales">Especiales</a></li>
+                                <li><a href="./#lec_top">TOP Day</a></li>
+                                <li><a href="./#lec_mascafe">Más Café</a></li>
+                                <li><a href="./#lec_explora">Explora</a></li>
                             </ul>
                           
                         </li>
 					
-						<li ><a href="index.php#lec_testimonios" >Testimonios</a> </li>
-						<li ><a href="index.php#lec_contacto">Contacto</a> </li>
-						<li ><a href="index.php#lec_virtual">Virtual</a> </li>
+						<li ><a href="./#lec_testimonios" >Testimonios</a> </li>
+						<li ><a href="./#lec_contacto">Contacto</a> </li>
+						<li ><a href="./#lec_virtual">Virtual</a> </li>
+						<li ><a href="./#lec_reservacion">Reservación</a></li>
                     </ul>
                     <div class="lec_main_menu_content_menu_copy">
-                        <p>© 2017- </p>
+                        <p>© 2017- <span class="currentYear"></span></p>
                         <div class="lec_footer_social">
                             <a href="#"><i class="ti ti-facebook lec_icon_box"></i></a>
                             <a href="#"><i class="ti ti-instagram lec_icon_box"></i></a>
@@ -139,8 +139,7 @@
             <div class="lec_slide_txt lec_slide_center_middle text-center">
                 <img src="images/coffee/coffee_logo.png" height="180" alt=""><br/>
 			
-				 <form  name="frm_admin" id="frm_admin" class="classic-form" >
-					
+				 <form name="frm_admin" id="frm_admin" class="classic-form">
 					<table class="table table-responsive" border="0" align="center">
                         <tr>
                             <td colspan=2>
@@ -158,13 +157,12 @@
                             <td>
                                 <input type="password"  name="pass" id="pass" class="form-control" placeholder="Password" required="required" maxlength=8 />
                                 
-                                <div class="checkbox"><label><input id="user_remember_me" name="user[remember_me]" type="checkbox" value="1" checked>Recuerdame</label>
-                                <a  id="btn_limpiar" href="#"><i class="ti ti-trash lec_icon_box"></i>Limpiar </a>
+                                <div class="checkbox">
+                                    <label><input id="user_remember" name="user_remember" type="checkbox" value="1" checked>Recuerdame</label>
+                                    <a id="btn_limpiar" href="#"><i class="ti ti-trash lec_icon_box"></i>Limpiar </a>
                                 </div>
-                
                             </td>
                         </tr>
-                            
                         <tr>
                             <td  colspan="2" >
                                 <a id="btn_enviar" href="#" class="btn  btn-block "> <i class="ti ti-android"></i>Iniciar</a>
@@ -172,7 +170,6 @@
                         </tr>
 					</table>
 				</form>
-     
             </div>
         </div>
     </div>
