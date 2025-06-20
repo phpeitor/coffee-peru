@@ -7,11 +7,16 @@
   <img src="https://cdn.dribbble.com/userupload/5104275/file/original-4d977a3a9408bf228ff37c1b3c41e649.jpg" alt="Instagram" width="400">
 </a>
 
-- Clona este repositorio en tu máquina local utilizando el comando git clone [URL_del_repositorio].
-- Abre el archivo index.html en tu navegador web preferido.
+## 🚀 Quick Start
 
+1. **Clonar este repositorio**
+```bash
+git clone https://github.com/phpeitor/coffee-peru.git
+cd coffee-peru
 ```
-    .\index.html
+2. **Ejecutar comando**
+```bash
+index.html
 ```
 
 *If you're interested in knowing the powerlevel configuration to get this prompt, have a look at [this gist](https://github.com/phpeitor/).*
