@@ -1164,18 +1164,20 @@ label.error{
 			-o-transition-delay: 150ms;
 			transition-delay: 150ms;
 		}
-		.lec_main_menu_icon i:nth-child(4) {
-			margin-top: 16px;
-			-webkit-transition-delay: 250ms;
-			-o-transition-delay: 250ms;
-			transition-delay: 250ms;
-			background: #fff;
-			opacity: 0;
-		}
-		.lec_main_menu.active i:nth-child(4) {
-			transform: translateY(-8px);
-			opacity: 1;
-		}
+
+        .lec_main_menu_icon i:nth-child(4) {
+            display: none;
+        }
+        
+        .lec_main_menu.active .lec_main_menu_icon i:nth-child(1) {
+            transform: translateY(16px) rotate(45deg);
+            opacity: 1;
+        }
+        .lec_main_menu.active .lec_main_menu_icon i:nth-child(2) {
+            transform: translateY(8px) rotate(-45deg);
+            opacity: 1;
+        }
+        
 	.lec_main_menu_icon b {
 		position: absolute;
 		margin-top: -2px;

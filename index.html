@@ -22,7 +22,7 @@
             <div class="lec_main_menu">
                 <div class="lec_main_menu_icon">
                     <i></i><i></i><i></i><i></i>
-                    <b class="lec_main_menu_icon_b">Atrás</b>
+                    <b class="lec_main_menu_icon_b"></b>
                 </div>
             </div>
 
@@ -837,29 +837,30 @@
                 <div class="lec_over" data-color="#000" data-opacity="0.8"></div>
                 <div class="container text-center" id="lec_reservacion">
                     <h2 class="lec_gold lec_title_counter">Reservacion</h2>
-                    <div class="row">
-                        <div class="col-md-5 col-md-offset-1">
-                            <p>Datos Evento</p>
-                            <input type="date" placeholder="Fecha" class="form-control" /> <br>
-                            <input type="time" placeholder="Hora" class="form-control" /> <br>
-                            <input type="text" placeholder="Evento" class="form-control" /> <br>
-                        </div>
+                    <form name="frm_admin" id="frm_admin" class="classic-form">
+                        <div class="row">
+                            <div class="col-md-5 col-md-offset-1">
+                                <p>Datos Evento</p>
+                                <input type="date" placeholder="Fecha" class="form-control" required="required" /> <br>
+                                <input type="time" placeholder="Hora" class="form-control" required="required" /> <br>
+                                <input type="text" placeholder="Evento" class="form-control" required="required" /> <br>
+                            </div>
 
-                        <div class="col-md-5">
-                            <p>Datos Contacto</p>
-                            <input type="text" placeholder="Nombre Completo" class="form-control" /> <br>
-                            <input type="email" class="form-control" placeholder="Correo Electrónico" /> <br>
-                            <input type="text" placeholder="Teléfono" class="form-control" /> <br>
-                        </div>
+                            <div class="col-md-5">
+                                <p>Datos Contacto</p>
+                                <input type="text" placeholder="Nombre Completo" class="form-control" required="required" /> <br>
+                                <input type="email" class="form-control" placeholder="Correo Electrónico" required="required" /> <br>
+                                <input type="text" placeholder="Teléfono" class="form-control" required="required" /> <br>
+                            </div>
 
-                        <div class="col-md-10 col-md-offset-1">
-                            <textarea class="form-control" placeholder="Mensaje" rows="6"></textarea> <br>
+                            <div class="col-md-10 col-md-offset-1">
+                                <textarea class="form-control" placeholder="Mensaje" rows="6"></textarea> <br>
+                            </div>
+                            <div class="col-md-4 col-md-offset-4">
+                                <a id="btn_enviar" href="#lec_reservacion" class="btn btn-block"> <i class="ti ti-check"></i>Reservar</a>
+                            </div>
                         </div>
-                        <div class="col-md-4 col-md-offset-4">
-                            <input type="submit" class="btn" value="Reservar" >
-                        </div>
-                    </div>
-                 
+                    </form>
                 </div>
         </section>
 
@@ -933,5 +934,65 @@
 <script src="./js/jquery-1.12.4.min.js"></script> 
 <script src="./js/lecker_library.js"></script> 
 <script src="./js/lecker_script.js"></script>
+<script type="text/javascript">
+    $(function() {
+        
+        $("#btn_enviar").click(function(e) {			
+                var isValidado = true;
+
+                $("#frm_admin").find("input[required=required]").each(function (i,e) {
+                    var tipo_control = ($(this)[0].tagName).toUpperCase();
+                    if (tipo_control == "INPUT") {
+                        if ($.trim($(this).val()).length==0) {
+                            $(this).addClass("error");
+                            if (isValidado)
+                            $(this).focus(); 
+                            isValidado = false;
+                        } else
+                            $(this).removeClass("error");
+                    }
+                });
+                
+                $("#frm_admin").find("input[required=required]").keyup(function (e) {
+                    if ($.trim($(this).val()).length==0) {
+                        $(this).addClass("error")
+                    }
+                    else{
+                        $(this).removeClass("error");
+                    }
+                });
+                
+                if (!isValidado)
+                    return;
+
+                contacto();
+        });
+
+        function contacto() {
+            var data = {
+                fecha: $("#frm_admin input[type=date]").val(),
+                hora: $("#frm_admin input[type=time]").val(),
+                evento: $("#frm_admin input[type=text]").val(),
+                nombre: $("#frm_admin input[type=text]:eq(1)").val(),
+                email: $("#frm_admin input[type=email]").val(),
+                telefono: $("#frm_admin input[type=text]:eq(2)").val(),
+                mensaje: $("#frm_admin textarea").val()
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "./api/contacto.php",
+                data: data,
+                success: function(response) {
+                    alert("Gracias por contactarnos, pronto nos pondremos en contacto contigo.");
+                    $("#frm_admin")[0].reset();
+                },
+                error: function() {
+                    alert("Ocurrió un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.");
+                }
+            });
+        }
+    });	
+</script>
 </body>
 </html>
